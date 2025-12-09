@@ -3,14 +3,23 @@
   margin: 0;
   box-sizing: border-box;
 }
+body,
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
 
 .header {
   background-color: brown;
+}
+.container {
   min-height: auto;
   background-size: cover;
   background-position: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 15px;
 }
 li {
   list-style: none;
@@ -18,7 +27,7 @@ li {
 .navbar {
   min-height: 70px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 0 24px;
 }
@@ -30,10 +39,10 @@ li {
 }
 
 .nav-link {
-  transition: 0.7s ease;
+  transition: color 0.3s ease;
 }
 .nav-link:hover {
-  color: red;
+  color: #ffc107 !important;
 }
 
 .bar {
@@ -55,4 +64,18 @@ a {
   background-size: cover;
   background-position: center;
   background-color: chocolate;
+}
+
+/* Main */
+main {
+  flex: 1; /* Tự động giãn ra lấp đầy khoảng trống */
+  position: relative; /* Để map con định vị theo cái này */
+  overflow: hidden; /* Ẩn thanh cuộn nếu map bị tràn */
+}
+
+#map {
+  width: 100%;
+  height: 450px;
+  margin: 0 auto;
+  border-radius: 4px;
 }
