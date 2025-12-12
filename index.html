@@ -44,16 +44,16 @@
               <div class="navbar">
                 <ul class="nav-menu">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Hôm nay</a>
+                    <a href="#" class="nav-link active" data-tab="today">Hôm nay</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Hàng giờ</a>
+                    <a href="#" class="nav-link" data-tab="hourly">Hàng giờ</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">7 ngày tới</a>
+                    <a href="#" class="nav-link" data-tab="7days">7 ngày tới</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Chất lượng không khí</a>
+                    <a href="#" class="nav-link" data-tab="air">Chất lượng không khí</a>
                   </li>
                 </ul>
                 
@@ -81,18 +81,68 @@
     </header>
     <main>
         <div class="container">
-            <h2 id="temp" class="mt-3 text-center">Nhiệt độ:</h2>
             <div id="map"></div>
+            
+            <h2 class="text-center text-black-10 py-3">
+                Thông số 
+            </h2>
+            <div class="container my-4">
+                <div class="row text-center">
+                    <!-- Nhiệt độ -->
+                     <div class="col-6 col-lg-3">
+                        <div class="p-3 border rounded-3">
+                            <div class="mb-2 fs-3 stat-icon"><i class="bi bi-thermometer-half"></i></div>
+                            <h2 class="mt-3 text-center">Nhiệt độ</h2>
+                            <h2 id="temp" class="value-temp"></h2>
+                            <h2 class="mt-3 text-center ">Cảm giác như</h2>
+                            <h2 id="appear-temp" class="value-appear-temp"></h2>
+                        </div>
+                     </div>
+
+                     <!-- Tốc độ gió và hướng gió -->
+                     <div class="col-6 col-lg-3">
+                        <div class="p-3 border rounded-3">
+                            <div class="mb-2 fs-3 stat-icon"><i class="bi bi-wind"></i></div>
+                            <h2 class="mt-3 text-center">Tốc độ gió</h2>
+                            <h2 id="wind-speed" class="value-wind"></h2>
+                            <h2 class="mt-3 text-center ">Hướng gió</h2>
+                            <h2 id="wind-direct" class="value-wind-direct"></h2>
+                        </div>
+                     </div>
+
+                      <!-- Độ ẩm -->
+                      <div class="col-6 col-lg-3">
+                        <div class="p-3 border rounded-3">
+                            <div class="mb-2 fs-3 stat-icon"><i class="bi bi-droplet"></i></div>
+                            <h2 class="mt-3 text-center">Độ ẩm</h2>
+                            <h2 id="humidity" class="value-humidity"></h2>
+                            <h2 class="mt-3 text-center">---</h2>
+                            <h2 id="humidity-level" class="value-humidity"></h2>
+                        </div>
+                     </div>
+
+                      <!-- Thời tiết hiện tại -->
+                      <div class="col-6 col-lg-3">
+                        <div class="p-3 border rounded-3">
+                            <div class="mb-2 fs-3 stat-icon"><i class="bi bi-cloud-sun"></i></div>
+                            <h2  class="mt-3 text-center">Thời tiết</h2>
+                            <h2 id="current_weather" class="value-weather"></h2>
+                            <h2  class="mt-3 text-center">----</h2>
+                            <h2 id="day-night" class="value-weather"></h2>
+                        </div>
+                     </div>
+                </div>
+            </div>
         </div>
         
     </main>
-    <footer class=" py-3 text-center text-black-50">
+    <footer class="text-center text-black-50">
       <!-- place footer here -->
       <div class="footer-content">
-        <p>
+        
           &copy; 2024 Weather app. Developed by <strong>Phạm Bảo Việt</strong>
-          <p>Weather data provided by <a href="https://open-meteo.com/" target="_blank">Open-Meteo.com</a>.</p>
-        </p>
+          Weather data provided by <a href="https://open-meteo.com/" target="_blank">Open-Meteo.com</a>.
+        
         <div class="social-links">
             <a href="https://github.com/phambaoviet">Github</a> | <a href="https://www.linkedin.com/in/pham-bao-viet-873006185/">Linkedin</a>
         </div>
@@ -110,7 +160,8 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
-    <script src="js/app.js" ></script>
     <script src="js/map.js"></script>
+    <script src="js/app.js" ></script>
+    
   </body>
 </html>

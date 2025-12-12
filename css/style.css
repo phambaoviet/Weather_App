@@ -79,3 +79,33 @@ main {
   margin: 0 auto;
   border-radius: 4px;
 }
+
+/* Icon */
+.stat-icon {
+  color: #b71c1c;
+}
+/* Giá trị */
+/* .value-temp,
+.value-wind,
+.value-humidity,
+.value-weather {
+  color: #212529;
+} */
+
+.value-temp,
+.value-appear-temp {
+  color: #e65100; /* cam -> nhiệt độ */
+}
+
+.value-wind,
+.value-wind-direct {
+  color: #0277bd; /* xanh dương -> gió */
+}
+
+.value-humidity {
+  color: #00796b; /* xanh ngọc -> độ ẩm */
+}
+
+.value-weather {
+  color: #4a148c; /* tím -> mô tả thời tiết */
+}
