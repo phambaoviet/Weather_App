@@ -129,33 +129,26 @@ function mapAqi(aqi) {
   if (aqi <= 50) {
     return {
       level: 'Tốt',
-      advice: 'Không khí trong lành, bạn có thể hoạt động bình thường.',
     };
   } else if (aqi <= 100) {
     return {
       level: 'Trung bình',
-      advice: 'Nhóm nhạy cảm nên hạn chế ở ngoài trời lâu.',
     };
   } else if (aqi <= 150) {
     return {
       level: 'Không tốt cho nhóm nhạy cảm',
-      advice:
-        'Người bệnh, người già, trẻ em nên giảm vận động mạnh ngoài trời.',
     };
   } else if (aqi <= 200) {
     return {
       level: 'Xấu',
-      advice: 'Mọi người nên hạn chế hoạt động ngoài trời.',
     };
   } else if (aqi <= 300) {
     return {
       level: 'Rất xấu',
-      advice: 'Hạn chế tối đa ra ngoài, nên đeo khẩu trang lọc tốt.',
     };
   } else {
     return {
       level: 'Nguy hại',
-      advice: 'Nên ở trong nhà, chỉ ra ngoài khi thật cần thiết.',
     };
   }
 }
@@ -171,28 +164,22 @@ function mapPm2_5(pm) {
   if (pm <= 15) {
     return {
       level: 'Tốt',
-      advice: 'Không khí sạch, bạn có thể sinh hoạt ngoài trời thoải mái.',
     };
   } else if (pm <= 35) {
     return {
       level: 'Trung bình',
-      advice: 'Nhóm nhạy cảm nên hạn chế ở ngoài trời quá lâu.',
     };
   } else if (pm <= 55) {
     return {
       level: 'Kém',
-      advice: 'Nên hạn chế vận động mạnh ngoài trời, đặc biệt với người bệnh.',
     };
   } else if (pm <= 150) {
     return {
       level: 'Xấu',
-      advice: 'Nên đeo khẩu trang khi ra ngoài và đóng cửa sổ khi ở trong nhà.',
     };
   } else {
     return {
       level: 'Rất xấu',
-      advice:
-        'Hạn chế tối đa ra ngoài, ưu tiên ở trong nhà, dùng lọc không khí nếu có.',
     };
   }
 }
@@ -209,28 +196,22 @@ function mapPm10(pm) {
   if (pm <= 30) {
     return {
       level: 'Tốt',
-      advice: 'Bụi thô ở mức thấp, không khí khá ổn.',
     };
   } else if (pm <= 50) {
     return {
       level: 'Trung bình',
-      advice: 'Có thể ra ngoài bình thường, nhóm nhạy cảm nên chú ý.',
     };
   } else if (pm <= 100) {
     return {
       level: 'Kém',
-      advice: 'Hạn chế ở khu vực nhiều xe, công trường, nên đeo khẩu trang.',
     };
   } else if (pm <= 200) {
     return {
       level: 'Xấu',
-      advice: 'Không nên ở ngoài trời lâu, đặc biệt là gần đường lớn.',
     };
   } else {
     return {
       level: 'Rất xấu',
-      advice:
-        'Tránh tối đa hoạt động ngoài trời, đặc biệt với trẻ em và người cao tuổi.',
     };
   }
 }
@@ -247,24 +228,40 @@ function mapNo2(no2) {
   if (no2 <= 40) {
     return {
       level: 'Tốt',
-      advice: 'Mức NO₂ thấp, ít ảnh hưởng đến hô hấp.',
     };
   } else if (no2 <= 100) {
     return {
       level: 'Trung bình',
-      advice: 'Người có bệnh hô hấp nên hạn chế ở gần đường lớn, khu đông xe.',
     };
   } else if (no2 <= 200) {
     return {
       level: 'Kém',
-      advice:
-        'Nên tránh khu vực đông xe, ưu tiên di chuyển bằng phương tiện công cộng.',
     };
   } else {
     return {
       level: 'Xấu',
-      advice: 'Không nên ở lâu ngoài trời gần khu giao thông đông đúc.',
     };
+  }
+}
+// Level color
+function colorLevel(el, level) {
+  // đưa hết về chữ thường
+  const lv = level.toLowerCase();
+  if (
+    lv.includes('Tuyệt vời') ||
+    lv.includes('vừa phải') ||
+    lv.includes('tốt') ||
+    lv.includes('trung bình')
+  ) {
+    el.classList.add('text-success');
+  }
+  // Nhóm xấu có hại
+  else if (lv.includes('xấu') || lv.includes('có hại') || lv.includes('kém')) {
+    el.classList.add('text-warning');
+  }
+  // Nhóm "rất có hại" / "nguy hiểm" -> đỏ
+  else if (lv.includes('rất có hại') || lv.includes('nguy hiểm')) {
+    el.classList.add('text-danger');
   }
 }
 async function getAirQuality(lat, lon) {
@@ -287,38 +284,19 @@ async function getAirQuality(lat, lon) {
 
     // Đổ dữ liệu ra UI
     const aqiLevel = document.querySelector('#aqi-level');
-    const aqiAdvice = document.querySelector('#aqi-advice');
     const pm2_5Level = document.querySelector('#pm2_5-level');
-    const pm2_5Advice = document.querySelector('#pm2_5-advice');
     const pm10Level = document.querySelector('#pm10-level');
-    const pm10Advice = document.querySelector('#pm10-advice');
     const no2Level = document.querySelector('#no2-level');
-    const no2Advice = document.querySelector('#no2-advice');
 
-    if (aqiLevel) {
-      aqiLevel.textContent = aqiInfo.level;
-    }
-    if (aqiAdvice) {
-      aqiAdvice.textContent = aqiInfo.advice;
-    }
-    if (pm2_5Level) {
-      pm2_5Level.textContent = pm2_5Info.level;
-    }
-    if (pm2_5Advice) {
-      pm2_5Advice.textContent = pm2_5Info.advice;
-    }
-    if (pm10Level) {
-      pm10Level.textContent = pm10Info.level;
-    }
-    if (pm10Advice) {
-      pm10Advice.textContent = pm10Info.advice;
-    }
-    if (no2Level) {
-      no2Level.textContent = no2Info.level;
-    }
-    if (no2Advice) {
-      no2Advice.textContent = no2Info.advice;
-    }
+    aqiLevel.textContent = aqiInfo.level;
+    pm2_5Level.textContent = pm2_5Info.level;
+    pm10Level.textContent = pm10Info.level;
+    no2Level.textContent = no2Info.level;
+
+    colorLevel(aqiLevel, aqiInfo.level);
+    colorLevel(pm2_5Level, pm2_5Info.level);
+    colorLevel(pm10Level, pm10Info.level);
+    colorLevel(no2Level, no2Info.level);
 
     document.querySelector('#aqi-value').textContent = `${aqi} AQI`;
     document.querySelector('#pm10-value').textContent = `${pm10} µg/m³`;

@@ -108,3 +108,26 @@ main {
 .value-weather {
   color: #4a148c; /* tím -> mô tả thời tiết */
 }
+
+/* Chất lượng không khí */
+.air-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  background-color: #fff;
+  min-height: 260px;
+}
+/* Tiêu đề */
+.air-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+/* Giá trị + Chỉ số */
+.air-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}

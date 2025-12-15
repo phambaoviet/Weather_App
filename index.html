@@ -147,43 +147,70 @@
         </section>
         <!-- Chất lượng không khí -->
         <section id="tab-air" class="mt-4 tab-panel d-none">
-          <div class="container py-3">
-            <h2 class="text-center mb-4 text-black-10">Chất lượng không khí</h2>
+          <div class="container py-1">
+            <h2 class="text-black-10 text-center py-3">Chất lượng không khí</h2>
             <div class="row text-center g-3">
               <!-- AQI -->
-              <div class="col-6 col-lg-3">
-                <div class="p-3 border rounded-3">
-                  <h3>Chỉ số AQI (US)</h3>
-                  <h2 id="aqi-value">---</h2>
-                  <p id="aqi-level" class="mb-1">---</p>
-                  <p id="aqi-advice">---</p>
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="p-3 border rounded-3 air-card">
+                  <h3 class="air-title">Chỉ số AQI (US)</h3>
+                  <h2 id="aqi-value" class="air-value">---</h2>
+                  <p id="aqi-level" class="mb-1 air-level">---</p>
+                  <p id="aqi-advice">
+                    Chỉ số chất lượng không khí (AQI) hiện tại của chúng tôi
+                    cung cấp thông tin về chất lượng của không khí bạn đang hít
+                    thở kèm theo tác động đến sức khỏe của bạn. Có ít nhất sáu
+                    loại chất gây ô nhiễm khác nhau mà chúng tôi theo dõi có ảnh
+                    hưởng đến độ trong lành của không khí và sức khỏe của bạn.
+                  </p>
                 </div>
               </div>
               <!-- PM10 -->
-              <div class="col-6 col-lg-3">
-                <div class="p-3 border rounded-3">
-                  <h3>Chỉ số PM10</h3>
-                  <h2 id="pm10-value">---</h2>
-                  <p id="pm10-level" class="mb-1">---</p>
-                  <p id="pm10-advice">---</p>
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="p-3 border rounded-3 air-card">
+                  <h3 class="air-title">Chỉ số PM10</h3>
+                  <h2 id="pm10-value" class="air-value">---</h2>
+                  <p id="pm10-level" class="mb-1 air-level">---</p>
+                  <p id="pm10-advice">
+                    Vật chất dạng hạt là các hạt ô nhiễm hít được có đường kính
+                    dưới 10 micro mét. Các hạt lớn hơn 2,5 micro mét có thể tích
+                    tụ trong đường dẫn khí, gây ra nhiều vấn đề về sức khỏe. Nếu
+                    tiếp xúc nhiều có thể dẫn đến tình trạng kích ứng mắt và cổ
+                    họng, ho hoặc khó thở cũng như làm trầm trọng thêm bệnh hen
+                    suyễn. Tiếp xúc quá mức và thường xuyên có thể dẫn đến nhiều
+                    tác động nghiêm trọng đến sức khỏe.
+                  </p>
                 </div>
               </div>
               <!-- PM2.5 -->
-              <div class="col-6 col-lg-3">
-                <div class="p-3 border rounded-3">
-                  <h3>Chỉ số PM2.5</h3>
-                  <h2 id="pm2_5-value">---</h2>
-                  <p id="pm2_5-level" class="mb-1">---</p>
-                  <p id="pm2_5-advice">---</p>
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="p-3 border rounded-3 air-card">
+                  <h3 class="air-title">Chỉ số PM2.5</h3>
+                  <h2 id="pm2_5-value" class="air-value">---</h2>
+                  <p id="pm2_5-level" class="mb-1 air-level">---</p>
+                  <p id="pm2_5-advice">
+                    Vật chất dạng hạt mịn là các hạt ô nhiễm hít được có đường
+                    kính dưới 2,5 micro mét có khả năng đi vào trong phổi và
+                    dòng máu, gây ra nhiều vấn đề nghiêm trọng về sức khỏe. Tác
+                    động nghiêm trọng nhất là ở phổi và tim. Nếu tiếp xúc có thể
+                    dẫn đến tình trạng ho hoặc khó thở, làm trầm trọng thêm bệnh
+                    hen suyễn và hình thành bệnh đường hô hấp mãn tính.
+                  </p>
                 </div>
               </div>
               <!-- NO2 -->
-              <div class="col-6 col-lg-3">
-                <div class="p-3 border rounded-3">
-                  <h3>Chỉ số NO2</h3>
-                  <h2 id="no2-value">---</h2>
-                  <p id="no2-level" class="mb-1">---</p>
-                  <p id="no2-advice">---</p>
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="p-3 border rounded-3 air-card">
+                  <h3 class="air-title">Chỉ số NO2</h3>
+                  <h2 id="no2-value" class="air-value">---</h2>
+                  <p id="no2-level" class="mb-1 air-level">---</p>
+                  <p id="no2-advice">
+                    Hít thở trong môi trường có điôxít nitơ (NO2) ở mức cao có
+                    khả năng tăng nguy cơ gặp vấn đề về đường hô hấp. Các triệu
+                    chứng thường gặp là ho và khó thở, còn các vấn đề sức khỏe
+                    nghiêm trọng hơn như nhiễm trùng đường hô hấp có thể xuất
+                    hiện nếu tiếp xúc trong thời gian dài hơn.
+                  </p>
                 </div>
               </div>
             </div>
