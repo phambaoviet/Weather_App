@@ -13,6 +13,9 @@ body {
 
 .header {
   background-color: brown;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
 }
 .container {
   min-height: auto;
@@ -37,13 +40,11 @@ li {
   gap: 60px;
 }
 
-.nav-link {
-  transition: color 0.3s ease;
+.nav-menu .nav-link.active {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
 }
-.nav-link:hover {
-  color: #ffc107 !important;
-}
-
 .bar {
   display: block;
   width: 25px;
@@ -69,7 +70,6 @@ a {
 main {
   flex: 1; /* Tự động giãn ra lấp đầy khoảng trống */
   position: relative; /* Để map con định vị theo cái này */
-  overflow: hidden; /* Ẩn thanh cuộn nếu map bị tràn */
 }
 
 #map {
