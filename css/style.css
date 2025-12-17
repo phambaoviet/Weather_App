@@ -84,12 +84,6 @@ main {
   color: #b71c1c;
 }
 /* Giá trị */
-/* .value-temp,
-.value-wind,
-.value-humidity,
-.value-weather {
-  color: #212529;
-} */
 
 .value-temp,
 .value-appear-temp {

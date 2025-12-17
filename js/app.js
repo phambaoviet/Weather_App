@@ -11,7 +11,6 @@ async function getWeather(lat, lon) {
   let appear_temp = data.current.apparent_temperature;
   let humidity = data.current.relative_humidity_2m;
   let wind_speed = data.current.wind_speed_10m;
-  let wind_direct = data.current.wind_direction_10m;
   //   Ngày-đêm
   let day_night = data.current.is_day === 1;
   // Độ ẩm
@@ -264,6 +263,8 @@ function colorLevel(el, level) {
     el.classList.add('text-danger');
   }
 }
+
+// Chất lượng không khí
 async function getAirQuality(lat, lon) {
   try {
     const response = await fetch(
@@ -345,12 +346,12 @@ window.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       e.preventDefault(); // chặn href="#"
 
-      const tabName = link.getAttribute('data-tab'); // đọc today/hourly/7days/air
+      const tabName = link.getAttribute('data-tab'); // đọc today/air
       setActiveTab(tabName);
 
       // Nếu là tab "air" thì load chất lượng không khí
       if (tabName === 'air') {
-        // currentLat, currentLon là biến global bạn đã set trong searchCityAndGetWeather
+        // currentLat, currentLon là biến global đã set trong searchCityAndGetWeather
         getAirQuality(currentLat, currentLon);
       }
     });
